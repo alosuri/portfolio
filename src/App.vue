@@ -330,13 +330,16 @@ function quitSnake() {
           real-time typing. You can try it on this <a href="https://alosuri.github.io/chatter" class="text-blue-400 underline">website</a> or check it out on <a class="text-[#2dba4e] underline" href="https://github.com/alosuri/chatter">GitHub</a>.</p>
         <div class="flex flex-wrap gap-2 items-center justify-center w-[90%] overflow-hidden">
           <TechnologyIconSmall
-            image="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/640px-Typescript_logo_2020.svg.png"
-            name="TypeScript"></TechnologyIconSmall>
-          <TechnologyIconSmall
             image="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
             name="React"></TechnologyIconSmall>
+          <TechnologyIconSmall
+            image="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/640px-Typescript_logo_2020.svg.png"
+            name="TypeScript"></TechnologyIconSmall>
           <TechnologyIconSmall image="https://cdn.icon-icons.com/icons2/2699/PNG/512/firebase_logo_icon_171157.png"
             name="Firebase"></TechnologyIconSmall>
+          <TechnologyIconSmall
+          image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/512px-Tailwind_CSS_Logo.svg.png?20230715030042"
+          name="Tailwind"></TechnologyIconSmall>
           <TechnologyIconSmall image="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" name="Git">
           </TechnologyIconSmall>
           <TechnologyIconSmall
