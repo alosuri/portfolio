@@ -176,13 +176,13 @@ function quitSnake() {
     </div>
   </div>
 
-  <div ref="home" class="page bg-[#101010] bg-img flex flex-col items-center font-jetbrains justify-center">
+  <div ref="home" class="bg-[#101010] h-[100vh] min-h-[40rem] pt-24 w-scren bg-img flex flex-col items-center font-jetbrains justify-center">
       <h1 v-motion :initial="{ opacity: 0, y: 100 }" :enter="{ opacity: 1, y: 0, scale: 1 }" :delay="200"
         class="text-white text-2xl max-w-[80vw] text-center md:text-3xl font-poppins font-semibold z-10 font-shadow">Hi, I'm Rafał! Front-end & UI/UX developer.</h1>
 
     <div v-motion :initial="{ opacity: 0, y: 100 }" :enter="{ opacity: 1, y: 0, scale: 1 }" :delay="200"
       :duration="1200"
-      class="bg-[#12151a] w-[90%] h-[60%] lg:w-[65%] rounded-lg bg-opacity-80 border-[1px] border-[#424242] border-opacity-40 p-5 z-10 backdrop-blur-md mt-10">
+      class="bg-[#12151a] w-[90%] md:h-[65%] h-[30rem] lg:w-[65%] rounded-lg bg-opacity-80 border-[1px] border-[#424242] border-opacity-40 p-5 z-10 backdrop-blur-md mt-10">
       <div v-if="!snake" class="flex flex-col gap-5">
         <div class="flex flex-row gap-5">
           <p class="text-white">></p>
@@ -195,7 +195,8 @@ function quitSnake() {
           <li v-motion-slide-visible-once-left class="text-gray-400 pl-5">{{ item }}</li>
         </ul>
       </div>
-      <div v-if="snake" class="flex flex-col items-center justify-center gap-5">
+      <div v-if="snake" class="flex flex-col items-center md:justify-center justify-start h-full">
+        <div class="flex flex-col justify-center items-center w-full gap-5">
         <Snake ref="snakeRef"></Snake>
         <div class="flex flex-row items-center justify-between gap-5 bg-[#12151A] border-[1px] border-[#424242] border-opacity-40 lg:w-96 w-72 p-2 font-poppins">
             <button class="bg-[#6B4E5E] h-8 rounded-md px-5 font-normal text-[#d199b8]" @click="snakeRef?.restart()">Reset</button>
@@ -203,21 +204,19 @@ function quitSnake() {
             <button class="bg-[#462E3B] h-8 rounded-md px-5 font-normal text-[#c985aa]" @click="quitSnake()">Quit</button>
           </div>
         <p class="flex flex-wrap text-center text-gray-500 font-poppins">Scrolling is blocked while playing. Quit to return to the page.</p>
+        </div>
       </div>
     </div>
+    <p class="text-white font-poppins pt-10 text-center text-wrap p-5" v-motion :initial="{ y: 100 }" :enter="{ y: 0 }" >Enter command to terminal or scroll down!</p>
   </div>
 
-  <div ref="aboutme" class="page bg-[#12151A] flex flex-col items-center justify-center font-poppins gap-10">
+  <div ref="aboutme" class="bg-[#12151A] md:h-[100vh] min-h-[40rem] w-screen h-[calc(100vh+10rem)] flex flex-col items-center justify-center font-poppins gap-10">
     <img v-motion-slide-visible-once-left src="./assets/pfp.png" alt="Profile picture" class="lg:w-80 w-48 rounded-lg">
     <div class="flex flex-col gap-2 font-bold">
       <h1 v-motion-slide-visible-once-bottom class="text-white lg:text-6xl text-4xl font-medium font-poppins">About me
       </h1>
     </div>
-    <p v-motion-slide-visible-once-bottom class="lg:w-1/2 w-[80vw] text-gray-400 text-center lg:text-xl text-md">Hey
-      there, I'm Rafał, a passionate front-end and UI/UX developer. My journey into this exciting realm began way back
-      in elementary school. I can surely say that programming is my hobby. But hey, life's not all about coding, right?
-      When I'm not immersed in lines of code, you'll often find me reading books. Choosing a favorite one is no easy
-      task, but I had a lot of fun while reading “Bunny” by Mona Awad.</p>
+    <p v-motion-slide-visible-once-bottom class="lg:w-1/2 w-[80vw] text-gray-400 text-center lg:text-xl text-md">Hey there, I'm Rafał, a front-end and UI/UX developer. I've been coding since elementary school, and it's more than just a hobby - it's my passion. When I'm not writing code, I enjoy reading books and riding my bike. Choosing my favorite book is no easy task, but I had a lot of fun while reading “Bunny” by Mona Awad.</p>
     <a href="https://github.com/alosuri"
       class="bg-[#1f2124] text-white text-xl px-10 py-3 rounded-lg flex flex-row gap-3"
       v-motion-slide-visible-once-left>
@@ -227,7 +226,7 @@ function quitSnake() {
   </div>
 
   <div ref="technologies"
-    class="min-h-screen h-fit bg-[#1f2124] flex flex-col gap-10 items-center justify-center text-center py-10">
+    class="md:py-10 py-[10rem] min-h-screen h-fit bg-[#1f2124] flex flex-col gap-10 items-center justify-center text-center">
     <h1 v-motion-slide-visible-once-bottom class="text-white lg:text-6xl text-4xl font-medium font-poppins">Technologies
     </h1>
     <p v-motion-slide-visible-once-bottom class="text-white lg:text-2xl text-xl font-extralight font-poppins w-[80vw]">
@@ -236,6 +235,12 @@ function quitSnake() {
 
     <div  class="flex flex-col gap-5">
       <div class="flex lg:w-[70vw] w-[90vw] flex-wrap items-center justify-center rounded-xl gap-5">
+        <TechnologyIcon
+          image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Fedora_logo.svg/1024px-Fedora_logo.svg.png"
+          name="Fedora Linux"></TechnologyIcon>
+        <TechnologyIcon
+          image="https://static-00.iconduck.com/assets.00/nixos-icon-1024x889-h69qc7j9.png"
+          name="NixOS"></TechnologyIcon>
         <TechnologyIcon
           image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/480px-JavaScript-logo.png"
           name="JavaScript"></TechnologyIcon>
@@ -300,17 +305,36 @@ function quitSnake() {
       <img src="./assets/chat-screen.png" alt="" class="rounded-t-xl">
       <div
         class="w-full h-full bg-[#1f2124] bg-opacity-70 flex items-center justify-center flex-col rounded-b-xl py-10">
-        <h1 class="text-white font-normal text-3xl text-center">Chat Website</h1>
-        <p class="text-gray-400 m-10 text-justify">Real-time chat website, built with Vue.js framework and Firestore
+        <div class="flex md:flex-row flex-col justify-between items-center w-full px-10 pb-10">
+          <h1 class="text-white font-normal md:text-3xl text-2xl text-center">Chat Website</h1>
+          <div class="md:flex hidden flex-row gap-5 md:pt-0 pt-5">
+            <a class="bg-[#12151a] px-5 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242]" href="https://alosuri.github.io/chatter/">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="35" height="35" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                <path d="M3.6 9h16.8" />
+                <path d="M3.6 15h16.8" />
+                <path d="M11.5 3a17 17 0 0 0 0 18" />
+                <path d="M12.5 3a17 17 0 0 1 0 18" />
+              </svg>
+              <p class="text-white">Website</p>
+            </a>
+            <a class="bg-[#12151a] px-5 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242]" href="https://github.com/alosuri/chatter">
+              <img src="./assets/github-mark-white.png" alt="" class="w-8">
+              <p class="text-white">Github</p>
+            </a>
+          </div>
+        </div>
+        <p class="text-gray-400 mx-10 mb-10 text-justify">Real-time chat website, built with React framework and Firestore
           (Authentication, Cloud Firestore, Storage). Connect with multiple people worldwide simultaneously, featuring
-          real-time typing. Explore group chats for collaborative conversations.</p>
+          real-time typing. You can try it on this <a href="https://alosuri.github.io/chatter" class="text-blue-400 underline">website</a> or check it out on <a class="text-[#2dba4e] underline" href="https://github.com/alosuri/chatter">GitHub</a>.</p>
         <div class="flex flex-wrap gap-2 items-center justify-center w-[90%] overflow-hidden">
           <TechnologyIconSmall
-            image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/480px-JavaScript-logo.png"
-            name="JavaScript"></TechnologyIconSmall>
+            image="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/640px-Typescript_logo_2020.svg.png"
+            name="TypeScript"></TechnologyIconSmall>
           <TechnologyIconSmall
-            image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png"
-            name="Vue.js"></TechnologyIconSmall>
+            image="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+            name="React"></TechnologyIconSmall>
           <TechnologyIconSmall image="https://cdn.icon-icons.com/icons2/2699/PNG/512/firebase_logo_icon_171157.png"
             name="Firebase"></TechnologyIconSmall>
           <TechnologyIconSmall image="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" name="Git">
@@ -329,9 +353,28 @@ function quitSnake() {
       <img src="./assets/weather-screen.png" alt="" class="rounded-t-xl">
       <div
         class="w-full h-full bg-[#1f2124] bg-opacity-70 flex items-center justify-center flex-col rounded-b-xl py-10">
-        <h1 class="text-white font-normal text-3xl text-center">Weather Website</h1>
-        <p class="text-gray-400 m-10 text-justify">Discover precise weather forecasts with our Vue.js-based website,
-          utilizing the Open Meteo API for accuracy. Stay informed with real-time updates and reliable predictions.</p>
+        <div class="flex md:flex-row flex-col justify-between items-center w-full px-10 pb-10">
+          <h1 class="text-white font-normal md:text-3xl text-2xl text-center">Weather Website</h1>
+          <div class="md:flex hidden flex-row gap-5 md:pt-0 pt-5">
+            <a class="bg-[#12151a] px-5 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242]" href="https://alosuri.github.io/weather-website/">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="35" height="35" viewBox="0 0 24 24" stroke-width="1" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                <path d="M3.6 9h16.8" />
+                <path d="M3.6 15h16.8" />
+                <path d="M11.5 3a17 17 0 0 0 0 18" />
+                <path d="M12.5 3a17 17 0 0 1 0 18" />
+              </svg>
+              <p class="text-white">Website</p>
+            </a>
+            <a class="bg-[#12151a] px-5 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242]" href="https://github.com/alosuri/weather-website">
+              <img src="./assets/github-mark-white.png" alt="" class="w-8">
+              <p class="text-white">Github</p>
+            </a>
+          </div>
+        </div>
+
+        <p class="text-gray-400 mx-10 mb-10 text-justify">Discover the weather forecasts on my Vue.js website, powered by the Open Meteo API for accurate info. Get real-time updates and reliable predictions! You can try it on this <a href="https://alosuri.github.io/weather-website/" class="text-blue-400 underline">website</a> or check it out on <a class="text-[#2dba4e] underline" href="https://github.com/alosuri/weather-website">GitHub</a>.</p>
         <div class="flex flex-wrap gap-2 items-center justify-center w-[90%] overflow-hidden">
           <TechnologyIconSmall
             image="https://community-openhab-org.s3.dualstack.eu-central-1.amazonaws.com/original/3X/d/e/de6bed8f06b3e5a0ab03bb5d4369402988ec3d52.png"
@@ -355,11 +398,20 @@ function quitSnake() {
       <img src="./assets/random-screen.png" alt="" class="rounded-t-xl">
       <div
         class="w-full h-full bg-[#1f2124] bg-opacity-70 flex items-center justify-center flex-col rounded-b-xl py-10">
-        <h1 class="text-white font-normal text-3xl text-center">Random Gesture App <span
+        <div class="flex md:flex-row flex-col justify-between items-center w-full px-10 pb-10">
+        <h1 class="text-white font-normal md:text-3xl text-2xl text-center">Random Gesture App <span
             class="text-gray-400">(WIP)</span></h1>
-        <p class="text-gray-400 m-10 text-justify">Python-based desktop app, powered by PyQt5, designed for displaying
+          <div class="md:flex hidden flex-row gap-5 md:pt-0 pt-5"> 
+            <a class="bg-[#12151a] px-5 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242]" href="https://github.com/alosuri/RandomGestureApp">
+              <img src="./assets/github-mark-white.png" alt="" class="w-8">
+              <p class="text-white">Github</p>
+            </a>
+          </div>
+
+        </div>
+        <p class="text-gray-400 mx-10 mb-10 text-justify">Python-based desktop app, powered by PyQt5, designed for displaying
           drawing references with ease. Included features: choosing random image from folder, operations on image
-          (zooming, rotating, moving, making image monochrome, drawing gridlines), drawing with timer. </p>
+          (zooming, rotating, moving, making image monochrome, drawing gridlines and drawing with timer). The application is available on <a href="https://github.com/alosuri/RandomGestureApp" class="text-[#2dba4e] underline">GitHub</a>.</p>
         <div class="flex flex-wrap gap-2 items-center justify-center w-[90%] overflow-hidden">
           <TechnologyIconSmall image="https://cdn.freebiesupply.com/logos/large/2x/python-5-logo-png-transparent.png"
             name="Python"></TechnologyIconSmall>
