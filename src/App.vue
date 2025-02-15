@@ -299,11 +299,11 @@ function quitSnake() {
   <div ref="projects" class="page bg-grid flex flex-col items-center justify-center font-poppins gap-10">
     <div class="flex flex-col gap-10 font-bold items-center">
       <p v-motion :visible-once="{ scale: 1, opacity: 0.5, y: 0, }" :initial="{ scale: 0, opacity: 0, y: 100, }"
-        :delay="200" :duration="1200" class="lg:text-8xl text-6xl font-outline-2 opacity-20">PROJECTS</p>
+        :delay="200" :duration="1200" class="lg:text-8xl md:text-6xl text-4xl lg:font-outline-2 font-outline-1 opacity-20">PROJECTS</p>
       <p v-motion :visible-once="{ scale: 1.2, opacity: 1, y: 0, }" :initial="{ scale: 0, opacity: 0, y: 100, }"
-        :delay="200" :duration="1200" class="lg:text-9xl text-7xl text-white">PROJECTS</p>
+        :delay="200" :duration="1200" class="lg:text-9xl md:text-7xl text-5xl text-white">PROJECTS</p>
       <p v-motion :visible-once="{ scale: 1, opacity: 0.5, y: 0, }" :initial="{ scale: 0, opacity: 0, y: 100, }"
-        :delay="200" :duration="1200" class="lg:text-8xl text-6xl font-outline-2 opacity-20">PROJECTS</p>
+        :delay="200" :duration="1200" class="lg:text-8xl md:text-6xl text-4xl lg:font-outline-2 font-outline-1 opacity-20">PROJECTS</p>
     </div>
   </div>
 
@@ -333,7 +333,7 @@ function quitSnake() {
             </a>
           </div>
         </div>
-        <p class="text-gray-400 mx-10 mb-10 text-justify">Real-time chat website, built with React framework and Firestore
+        <p class="text-gray-400 lg:mx-10 mx-5 mb-10 text-justify">Real-time chat website, built with React framework and Firestore
           (Authentication, Cloud Firestore, Storage). Connect with multiple people worldwide simultaneously, featuring
           real-time typing. You can try it on this <a href="https://alosuri.github.io/chatter" class="text-blue-400 underline">website</a> or check it out on <a class="text-[#2dba4e] underline" href="https://github.com/alosuri/chatter">GitHub</a>.</p>
         <div class="flex flex-wrap gap-2 items-center justify-center w-[90%] overflow-hidden">
@@ -385,7 +385,7 @@ function quitSnake() {
           </div>
         </div>
 
-        <p class="text-gray-400 mx-10 mb-10 text-justify">Discover the weather forecasts on my Vue.js website, powered by the Open Meteo API for accurate info. Get real-time updates and reliable predictions! You can try it on this <a href="https://alosuri.github.io/weather-website/" class="text-blue-400 underline">website</a> or check it out on <a class="text-[#2dba4e] underline" href="https://github.com/alosuri/weather-website">GitHub</a>.</p>
+        <p class="text-gray-400 lg:mx-10 mx-5 mb-10 text-justify">Discover the weather forecasts on my Vue.js website, powered by the Open Meteo API for accurate info. Get real-time updates and reliable predictions! You can try it on this <a href="https://alosuri.github.io/weather-website/" class="text-blue-400 underline">website</a> or check it out on <a class="text-[#2dba4e] underline" href="https://github.com/alosuri/weather-website">GitHub</a>.</p>
         <div class="flex flex-wrap gap-2 items-center justify-center w-[90%] overflow-hidden">
           <TechnologyIconSmall
             image="https://community-openhab-org.s3.dualstack.eu-central-1.amazonaws.com/original/3X/d/e/de6bed8f06b3e5a0ab03bb5d4369402988ec3d52.png"
@@ -420,7 +420,7 @@ function quitSnake() {
           </div>
 
         </div>
-        <p class="text-gray-400 mx-10 mb-10 text-justify">Python-based desktop app, powered by PyQt5, designed for displaying
+        <p class="text-gray-400 lg:mx-10 mx-5 mb-10 text-justify">Python-based desktop app, powered by PyQt5, designed for displaying
           drawing references with ease. Included features: choosing random image from folder, operations on image
           (zooming, rotating, moving, making image monochrome, drawing gridlines and drawing with timer). The application is available on <a href="https://github.com/alosuri/RandomGestureApp" class="text-[#2dba4e] underline">GitHub</a>.</p>
         <div class="flex flex-wrap gap-2 items-center justify-center w-[90%] overflow-hidden">
@@ -453,7 +453,7 @@ function quitSnake() {
           </div>
 
         </div>
-        <p class="text-gray-400 mx-10 mb-10 text-justify">OpenGL engine written from scratch in GoLang. The engine currently supports procedural terrain generation and loading of 3D models in the .obj format. It provides a basic framework for 3D rendering and game development. You can find its source code on  <a href="https://github.com/alosuri/go-opengl-engine" class="text-[#2dba4e] underline">GitHub</a>.</p>
+        <p class="text-gray-400 lg:mx-10 mx-5 mb-10 text-justify">OpenGL engine written from scratch in GoLang. The engine currently supports procedural terrain generation and loading of 3D models in the .obj format. It provides a basic framework for 3D rendering and game development. You can find its source code on  <a href="https://github.com/alosuri/go-opengl-engine" class="text-[#2dba4e] underline">GitHub</a>.</p>
         <div class="flex flex-wrap gap-2 items-center justify-center w-[90%] overflow-hidden">
           <TechnologyIconSmall image="https://inisoftglobal.com/hubfs/golang-go-logo-DOWN01.png"
             name="GoLang"></TechnologyIconSmall>
@@ -499,6 +499,10 @@ function quitSnake() {
 
 .font-outline-2 {
   -webkit-text-stroke: 2px white;
+}
+
+.font-outline-1 {
+  -webkit-text-stroke: 1px white;
 }
 
 .font-shadow {
