@@ -10,7 +10,7 @@ let output : any = ref([]);
 let home = ref<HTMLDivElement>();
 let aboutme = ref<HTMLDivElement>();
 let technologies = ref<HTMLDivElement>();
-let works = ref<HTMLDivElement>();
+let projects = ref<HTMLDivElement>();
 let navmenu = ref();
 let snake = ref();
 const snakeRef = ref();
@@ -44,8 +44,8 @@ function goToSection(text: string) {
     window.scrollTo({ top: technologies.value?.offsetTop, behavior: "smooth" });
   }
 
-  else if (text.toLowerCase() == "works") {
-    window.scrollTo({ top: works.value?.offsetTop, behavior: "smooth" });
+  else if (text.toLowerCase() == "projects") {
+    window.scrollTo({ top: projects.value?.offsetTop, behavior: "smooth" });
   }
 }
 
@@ -86,7 +86,7 @@ function cmd(text: string) {
     }, 800);
   }
 
-  else if (text.toLowerCase() == "works") {
+  else if (text.toLowerCase() == "projects") {
     command = "";
     for (let i = 0; i < output_data.length; i++) {
       setTimeout(() => {
@@ -94,7 +94,7 @@ function cmd(text: string) {
       }, i * 100)
     }
     setTimeout(() => {
-      goToSection("works")
+      goToSection("projects")
 
       setTimeout(() => {
         output.value = [];
@@ -153,7 +153,7 @@ function quitSnake() {
       <a @click="goToSection('home')" class="cursor-pointer">Home</a>
       <a @click="goToSection('aboutme')" class="cursor-pointer">About me</a>
       <a @click="goToSection('technologies')" class="cursor-pointer">Technologies</a>
-      <a @click="goToSection('works')" class="cursor-pointer">Works</a>
+      <a @click="goToSection('projects')" class="cursor-pointer">Projects</a>
     </div>
   </nav>
 
@@ -172,7 +172,7 @@ function quitSnake() {
       <a @click="goToSection('home')" class="cursor-pointer">Home</a>
       <a @click="goToSection('aboutme')" class="cursor-pointer">About me</a>
       <a @click="goToSection('technologies')" class="cursor-pointer">Technologies</a>
-      <a @click="goToSection('works')" class="cursor-pointer">Works</a>
+      <a @click="goToSection('projects')" class="cursor-pointer">Projects</a>
     </div>
   </div>
 
@@ -190,7 +190,7 @@ function quitSnake() {
             @keyup.enter="cmd(command)" class="bg-transparent outline-none text-white w-full" />
         </div>
         <p class="bg-transparent outline-none text-white w-full">Available command: <span
-            class="text-green-300">aboutme, technologies, works, snake.</span></p>
+            class="text-green-300">aboutme, technologies, projects, snake.</span></p>
         <ul v-for="item in output">
           <li v-motion-slide-visible-once-left class="text-gray-400 pl-5">{{ item }}</li>
         </ul>
@@ -253,6 +253,8 @@ function quitSnake() {
           name="CSS"></TechnologyIcon>
         <TechnologyIcon image="https://cdn.freebiesupply.com/logos/large/2x/python-5-logo-png-transparent.png"
           name="Python"></TechnologyIcon>
+        <TechnologyIcon image="https://inisoftglobal.com/hubfs/golang-go-logo-DOWN01.png"
+          name="GoLang"></TechnologyIcon>
         <TechnologyIcon
           image="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1200px-Logo_C_sharp.svg.png"
           name="C#"></TechnologyIcon>
@@ -265,7 +267,13 @@ function quitSnake() {
         <TechnologyIcon
           image="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/2560px-Qt_logo_2016.svg.png"
           name="PyQt"></TechnologyIcon>
-        <TechnologyIcon image="https://cdn.icon-icons.com/icons2/2699/PNG/512/firebase_logo_icon_171157.png"
+        <TechnologyIcon image="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Opengl-logo.svg/2560px-Opengl-logo.svg.png"
+          name="OpenGL"></TechnologyIcon>
+        <TechnologyIcon image="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/ollama.png"
+          name="Ollama"></TechnologyIcon>
+        <TechnologyIcon image="https://upload.wikimedia.org/wikipedia/commons/6/62/ComfyUI_Logo.png"
+          name="ComfyUI"></TechnologyIcon>
+        <TechnologyIcon image="https://brandeps.com/logo-download/F/Firebase-logo-02.png"
           name="Firebase"></TechnologyIcon>
         <TechnologyIcon
           image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/512px-Tailwind_CSS_Logo.svg.png?20230715030042"
@@ -288,14 +296,14 @@ function quitSnake() {
 
   </div>
 
-  <div ref="works" class="page bg-grid flex flex-col items-center justify-center font-poppins gap-10">
+  <div ref="projects" class="page bg-grid flex flex-col items-center justify-center font-poppins gap-10">
     <div class="flex flex-col gap-10 font-bold items-center">
       <p v-motion :visible-once="{ scale: 1, opacity: 0.5, y: 0, }" :initial="{ scale: 0, opacity: 0, y: 100, }"
-        :delay="200" :duration="1200" class="lg:text-8xl text-6xl font-outline-2 opacity-20">WORKS</p>
+        :delay="200" :duration="1200" class="lg:text-8xl text-6xl font-outline-2 opacity-20">PROJECTS</p>
       <p v-motion :visible-once="{ scale: 1.2, opacity: 1, y: 0, }" :initial="{ scale: 0, opacity: 0, y: 100, }"
-        :delay="200" :duration="1200" class="lg:text-9xl text-7xl text-white">WORKS</p>
+        :delay="200" :duration="1200" class="lg:text-9xl text-7xl text-white">PROJECTS</p>
       <p v-motion :visible-once="{ scale: 1, opacity: 0.5, y: 0, }" :initial="{ scale: 0, opacity: 0, y: 100, }"
-        :delay="200" :duration="1200" class="lg:text-8xl text-6xl font-outline-2 opacity-20">WORKS</p>
+        :delay="200" :duration="1200" class="lg:text-8xl text-6xl font-outline-2 opacity-20">PROJECTS</p>
     </div>
   </div>
 
@@ -335,7 +343,7 @@ function quitSnake() {
           <TechnologyIconSmall
             image="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/640px-Typescript_logo_2020.svg.png"
             name="TypeScript"></TechnologyIconSmall>
-          <TechnologyIconSmall image="https://cdn.icon-icons.com/icons2/2699/PNG/512/firebase_logo_icon_171157.png"
+          <TechnologyIconSmall image="https://brandeps.com/logo-download/F/Firebase-logo-02.png"
             name="Firebase"></TechnologyIconSmall>
           <TechnologyIconSmall
           image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/512px-Tailwind_CSS_Logo.svg.png?20230715030042"
@@ -395,10 +403,10 @@ function quitSnake() {
     </div>
   </div>
 
-  <div class="h-fit bg-sc flex flex-col items-center justify-end font-poppins overflow-hidden">
+  <div class="h-fit bg-sc flex flex-col items-center justify-center font-poppins py-10 overflow-hidden">
     <div v-motion :visible-once="{ opacity: 1, y: 0 }" :initial="{ opacity: 0, y: 100, }" :delay="200" :duration="1200"
-      class="flex xl:max-w-[50vw] flex-col h-[50%] w-[80%] pb-32 pt-10">
-      <img src="./assets/random-screen.png" alt="" class="rounded-t-xl">
+      class="flex xl:max-w-[50vw] flex-col h-[50%] w-[80%]">
+    <img src="./assets/random-screen.png" alt="" class="rounded-t-xl">
       <div
         class="w-full h-full bg-[#1f2124] bg-opacity-70 flex items-center justify-center flex-col rounded-b-xl py-10">
         <div class="flex md:flex-row flex-col justify-between items-center w-full px-10 pb-10">
@@ -421,6 +429,37 @@ function quitSnake() {
           <TechnologyIconSmall
             image="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/2560px-Qt_logo_2016.svg.png"
             name="PyQt"></TechnologyIconSmall>
+          <TechnologyIconSmall image="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" name="Git">
+          </TechnologyIconSmall>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-fit bg-sc flex flex-col items-center justify-end font-poppins overflow-hidden">
+    <div v-motion :visible-once="{ opacity: 1, y: 0 }" :initial="{ opacity: 0, y: 100, }" :delay="200" :duration="1200"
+      class="flex xl:max-w-[50vw] flex-col h-[50%] w-[80%] pb-32 pt-10">
+      <img src="./assets/open-gl.png" alt="" class="rounded-t-xl">
+      <div
+        class="w-full h-full bg-[#1f2124] bg-opacity-70 flex items-center justify-center flex-col rounded-b-xl py-10">
+        <div class="flex md:flex-row flex-col justify-between items-center w-full px-10 pb-10">
+        <h1 class="text-white font-normal md:text-3xl text-2xl text-center">OpenGL engine <span
+            class="text-gray-400">(WIP)</span></h1>
+          <div class="md:flex hidden flex-row gap-5 md:pt-0 pt-5"> 
+            <a class="bg-[#12151a] px-5 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242]" href="https://github.com/alosuri/go-opengl-engine">
+              <img src="./assets/github-mark-white.png" alt="" class="w-8">
+              <p class="text-white">Github</p>
+            </a>
+          </div>
+
+        </div>
+        <p class="text-gray-400 mx-10 mb-10 text-justify">OpenGL engine written from scratch in GoLang. The engine currently supports procedural terrain generation and loading of 3D models in the .obj format. It provides a basic framework for 3D rendering and game development. You can find its source code on  <a href="https://github.com/alosuri/go-opengl-engine" class="text-[#2dba4e] underline">GitHub</a>.</p>
+        <div class="flex flex-wrap gap-2 items-center justify-center w-[90%] overflow-hidden">
+          <TechnologyIconSmall image="https://inisoftglobal.com/hubfs/golang-go-logo-DOWN01.png"
+            name="GoLang"></TechnologyIconSmall>
+          <TechnologyIconSmall
+            image="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Opengl-logo.svg/2560px-Opengl-logo.svg.png"
+            name="OpenGL"></TechnologyIconSmall>
           <TechnologyIconSmall image="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" name="Git">
           </TechnologyIconSmall>
         </div>
