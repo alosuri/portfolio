@@ -200,7 +200,7 @@ onUnmounted(() => {
     <template v-if="!snake">
       <h1 v-motion :initial="{ opacity: 0, y: 100 }" :enter="{ opacity: 1, y: 0, scale: 1 }" :delay="200"
         class="text-white text-2xl max-w-[80vw] text-center md:text-3xl font-poppins font-semibold z-10 font-shadow">
-        Hi, I'm Rafał! Front-end & UI/UX developer.
+        Hi, I'm Rafał! Front-end developer.
       </h1>
 
       <div v-motion :initial="{ opacity: 0, y: 100 }" :enter="{ opacity: 1, y: 0, scale: 1 }" :delay="200"
@@ -262,17 +262,25 @@ onUnmounted(() => {
       </h1>
 
       <p v-motion-slide-visible-once-bottom class="text-gray-400 text-md lg:text-xl">
-        Hey there, I'm Rafał — a front-end and UI/UX developer with a deep passion for technology that started back in
+        Hey there, I'm Rafał — a front-end developer with a deep passion for technology that started back in
         elementary school. Along with building websites and user interfaces, I also enjoy experimenting with Arduino to
-        create interactive hardware projects. Outside of coding, you'll often find me reading or out on my bike.
+        create interactive hardware projects. In my spare time, I enjoy reading or going for bike rides.
       </p>
 
-      <a href="https://github.com/alosuri"
-        class="bg-[#1f2124] text-white text-xl px-8 py-3 rounded-lg flex flex-row gap-3 items-center"
-        v-motion-slide-visible-once-left>
-        <img src="./assets/github-mark-white.png" alt="" class="w-7" />
-        <p>Github</p>
-      </a>
+      <div class="flex flex-row gap-4">
+        <a href="https://github.com/alosuri"
+          class="bg-[#1f2124] text-white lg:px-8 px-4 lg:text-xl text-md py-3 rounded-lg flex flex-row gap-3 items-center"
+          v-motion-slide-visible-once-left>
+          <img src="./assets/github-mark-white.png" alt="" class="w-7" />
+          <p>Github</p>
+        </a>
+        <a href="https://linkedin.com/in/rafał-suchorski-02b509353"
+          class="bg-[#1f2124] text-white lg:px-8 px-4 lg:text-xl text-md py-3 rounded-lg flex flex-row gap-3 items-center"
+          v-motion-slide-visible-once-left>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/800px-LinkedIn_icon.svg.png" alt="" class="w-7" />
+          <p>Linkedin</p>
+        </a>
+      </div>
     </div>
   </div>
 
