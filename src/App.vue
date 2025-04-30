@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import Snake from './components/Snake.vue'
-import TechnologyIcon from './components/TechnologyIcon.vue'
-import TechnologyIconSmall from './components/TechnologyIconSmall.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 let command = ''
@@ -146,25 +144,6 @@ function onScroll() {
   }
 }
 
-const getMotion = (index) => ({
-  initial: {
-    opacity: 0,
-    y: 60,
-    scale: 0.95,
-  },
-  enter: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 180,
-      damping: 20,
-      delay: index * 0.1,
-    },
-  },
-})
-
 onMounted(() => {
   window.addEventListener('scroll', onScroll)
 })
@@ -218,7 +197,6 @@ onUnmounted(() => {
 
   <div ref="home"
     class="bg-[#101010] h-[100vh] min-h-[40rem] pt-24 w-scren bg-img flex flex-col items-center font-jetbrains justify-center">
-    <!-- Terminal section (shown when not playing snake) -->
     <template v-if="!snake">
       <h1 v-motion :initial="{ opacity: 0, y: 100 }" :enter="{ opacity: 1, y: 0, scale: 1 }" :delay="200"
         class="text-white text-2xl max-w-[80vw] text-center md:text-3xl font-poppins font-semibold z-10 font-shadow">
@@ -398,21 +376,16 @@ onUnmounted(() => {
     <div v-motion :visible-once="{ opacity: 1, y: 0 }" :initial="{ opacity: 0, y: 100 }" :delay="200" :duration="1200"
       class="flex flex-col w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] max-w-[1000px]">
 
-      <!-- Image Section (Compact & Hover Zoom) -->
       <img src="./assets/chat-screen.png" alt="Chat Website" class="rounded-t-xl shadow-md" />
 
-      <!-- Content Section -->
       <div class="w-full bg-[#1f2124] bg-opacity-80 flex flex-col items-center justify-center rounded-b-xl py-8 p-6">
-        <!-- Title and Links Section -->
         <div class="flex flex-col md:flex-row justify-between items-center w-full gap-4 lg:mb-4 mb-0">
           <h1 class="text-white font-semibold text-2xl md:text-3xl text-center">Chat Website</h1>
           <div class="flex gap-4">
-            <!-- Website Button -->
             <a class="bg-[#12151a] px-4 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242] transition-all hover:bg-[#2d353d]"
               href="https://alosuri.github.io/chatter/" target="_blank" rel="noopener noreferrer">
               <p class="text-white">Website</p>
             </a>
-            <!-- GitHub Button -->
             <a class="bg-[#12151a] px-4 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242] transition-all hover:bg-[#2d353d]"
               href="https://github.com/alosuri/chatter" target="_blank" rel="noopener noreferrer">
               <p class="text-white">GitHub</p>
@@ -420,7 +393,6 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <!-- Description Section (Compact Text with Better Spacing) -->
         <p class="text-gray-300 text-sm md:text-base mt-4 mb-8 text-justify">
           Real-time chat website, built with React framework and Firestore (Authentication, Cloud Firestore, Storage).
           Connect with multiple people worldwide simultaneously, featuring real-time typing. You can try it on this
@@ -429,7 +401,6 @@ onUnmounted(() => {
           <a href="https://github.com/alosuri/chatter" class="text-[#2dba4e] underline hover:text-[#4be163]">GitHub</a>.
         </p>
 
-        <!-- Technology Icons Section (Compact Layout) -->
         <div class="flex flex-wrap gap-4 justify-center items-center w-full">
           <span class="tech-pill">React</span>
           <span class="tech-pill">TypeScript</span>
@@ -446,21 +417,16 @@ onUnmounted(() => {
     <div v-motion :visible-once="{ opacity: 1, y: 0 }" :initial="{ opacity: 0, y: 100 }" :delay="200" :duration="1200"
       class="flex flex-col w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] max-w-[1000px]">
 
-      <!-- Image Section (Compact & Hover Zoom) -->
       <img src="./assets/weather-screen.png" alt="Chat Website" class="rounded-t-xl shadow-md" />
 
-      <!-- Content Section -->
       <div class="w-full bg-[#1f2124] bg-opacity-80 flex flex-col items-center justify-center rounded-b-xl py-8 p-6">
-        <!-- Title and Links Section -->
         <div class="flex flex-col md:flex-row justify-between items-center w-full gap-4 lg:mb-4 mb-0">
           <h1 class="text-white font-semibold text-2xl md:text-3xl text-center">Weather Website</h1>
           <div class="flex gap-4">
-            <!-- Website Button -->
             <a class="bg-[#12151a] px-4 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242] transition-all hover:bg-[#2d353d]"
               href="https://alosuri.github.io/weather-website/" target="_blank" rel="noopener noreferrer">
               <p class="text-white">Website</p>
             </a>
-            <!-- GitHub Button -->
             <a class="bg-[#12151a] px-4 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242] transition-all hover:bg-[#2d353d]"
               href="https://github.com/alosuri/weather-website" target="_blank" rel="noopener noreferrer">
               <p class="text-white">GitHub</p>
@@ -468,7 +434,6 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <!-- Description Section (Compact Text with Better Spacing) -->
         <p class="text-gray-300 text-sm md:text-base mt-4 mb-8 text-justify">
           Discover the weather forecasts on my Vue.js website, powered by the Open Meteo API for
           accurate info. Get real-time updates and reliable predictions! You can try it on this
@@ -477,7 +442,6 @@ onUnmounted(() => {
           <a class="text-[#2dba4e] underline" href="https://github.com/alosuri/weather-website">GitHub</a>.
         </p>
 
-        <!-- Technology Icons Section (Compact Layout) -->
         <div class="flex flex-wrap gap-4 justify-center items-center w-full">
           <span class="tech-pill">OpenMeteo</span>
           <span class="tech-pill">JavaScript</span>
@@ -491,18 +455,14 @@ onUnmounted(() => {
     <div v-motion :visible-once="{ opacity: 1, y: 0 }" :initial="{ opacity: 0, y: 100 }" :delay="200" :duration="1200"
       class="flex flex-col w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] max-w-[1000px]">
 
-      <!-- Image Section (Compact & Hover Zoom) -->
       <img src="./assets/random-screen.png" alt="Chat Website" class="rounded-t-xl shadow-md" />
 
-      <!-- Content Section -->
       <div class="w-full bg-[#1f2124] bg-opacity-80 flex flex-col items-center justify-center rounded-b-xl py-8 p-6">
-        <!-- Title and Links Section -->
         <div class="flex flex-col md:flex-row justify-between items-center w-full gap-4 lg:mb-4 mb-0">
           <h1 class="text-white font-semibold text-2xl md:text-3xl text-center">
             Random Gesture App <span class="text-gray-400 font-normal">(WIP)</span>
           </h1>
           <div class="flex gap-4">
-            <!-- GitHub Button -->
             <a class="bg-[#12151a] px-4 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242] transition-all hover:bg-[#2d353d]"
               href="https://github.com/alosuri/RandomGestureApp" target="_blank" rel="noopener noreferrer">
               <p class="text-white">GitHub</p>
@@ -519,7 +479,6 @@ onUnmounted(() => {
           <a href="https://github.com/alosuri/RandomGestureApp" class="text-[#2dba4e] underline">GitHub</a>.
         </p>
 
-        <!-- Technology Icons Section (Compact Layout) -->
         <div class="flex flex-wrap gap-4 justify-center items-center w-full">
           <span class="tech-pill">Python</span>
           <span class="tech-pill">PyQt</span>
@@ -533,18 +492,14 @@ onUnmounted(() => {
     <div v-motion :visible-once="{ opacity: 1, y: 0 }" :initial="{ opacity: 0, y: 100 }" :delay="200" :duration="1200"
       class="flex flex-col w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] max-w-[1000px]">
 
-      <!-- Image Section (Compact & Hover Zoom) -->
       <img src="./assets/open-gl.png" alt="Chat Website" class="rounded-t-xl shadow-md" />
 
-      <!-- Content Section -->
       <div class="w-full bg-[#1f2124] bg-opacity-80 flex flex-col items-center justify-center rounded-b-xl py-8 p-6">
-        <!-- Title and Links Section -->
         <div class="flex flex-col md:flex-row justify-between items-center w-full gap-4 lg:mb-4 mb-0">
           <h1 class="text-white font-semibold text-2xl md:text-3xl text-center">
             OpenGL engine <span class="text-gray-400 font-normal">(WIP)</span>
           </h1>
           <div class="flex gap-4">
-            <!-- GitHub Button -->
             <a class="bg-[#12151a] px-4 py-2 rounded-md flex flex-row items-center justify-center gap-3 border-[1px] border-[#424242] transition-all hover:bg-[#2d353d]"
               href="https://github.com/alosuri/go-opengl-engine" target="_blank" rel="noopener noreferrer">
               <p class="text-white">GitHub</p>
@@ -560,7 +515,6 @@ onUnmounted(() => {
           <a href="https://github.com/alosuri/go-opengl-engine" class="text-[#2dba4e] underline">GitHub</a>.
         </p>
 
-        <!-- Technology Icons Section (Compact Layout) -->
         <div class="flex flex-wrap gap-4 justify-center items-center w-full">
           <span class="tech-pill">GoLang</span>
           <span class="tech-pill">OpenGL</span>
