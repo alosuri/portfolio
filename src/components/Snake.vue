@@ -186,16 +186,25 @@ function randomizeFood() {
 }
 
 function drawSnake() {
-  if (!context.value) {
-    return;
-  }
+  if (!context.value) return;
+  const ctx = context.value;
+  const baseColor = { r: 62, g: 82, b: 72 };
 
-  context.value.fillStyle = "#697B6D";
   for (let i = 0; i < snake.length; i++) {
-    context.value.fillRect(snake[(snake.length - 1) - i].x, snake[(snake.length - 1) - i].y, element_s, element_s)
-    context.value.fillStyle = "#233337";
+    const part = snake[i];
+
+    const colorOffset = i * 3;
+
+    const r = Math.min(255, baseColor.r + colorOffset);
+    const g = Math.min(255, baseColor.g + colorOffset);
+    const b = Math.min(255, baseColor.b + colorOffset);
+
+    ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+
+    ctx.fillRect(part.x, part.y, element_s, element_s);
   }
 }
+
 
 defineExpose({
   restart,
@@ -221,7 +230,7 @@ defineExpose({
       </div>
     </div>
     <canvas v-touch:swipe="onSwipe" ref="canvasElement" id="canvasElement" :height="game_height" :width="game_width"
-      class="lg:h-96 bg-[#12151A] lg:w-96 w-72 h-72 border-[1px] border-[#424242] border-opacity-40" />
+      class="lg:h-96 lg:w-96 md:w-72 md:h-72 w-64 h-64 bg-[#12151A] border-[1px] border-[#424242] border-opacity-40" />
   </div>
 </template>
 
